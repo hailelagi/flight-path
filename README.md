@@ -10,6 +10,15 @@ Responds to json-ecoded `POST` requests on the `./calculate` route. This _must_ 
 curl -H "Content-type: application/json" -d '[['ATL', 'EWR'], ['SFO', 'ATL']]' 'http://localhost:8080/calculate'
 ```
 
+## Schema
+
+```
+[['SFO''EWR']]  => ['SFO', 'EWR']
+[['ATL', 'EWR'], ['SFO', 'ATL']]     => ['SFO', 'EWR']
+[['IND', 'EWR'], ['SFO', 'ATL'], ['GSO', 'IND'], ['ATL', 'GSO']] => ['SFO', 'EWR']
+
+```
+
 ## Installation
 
 Assuming you have the rust toolchain installed with `cargo`: `cargo run`
