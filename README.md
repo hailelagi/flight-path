@@ -7,7 +7,7 @@ A flight path microservice API.
 Responds to json-ecoded `POST` requests on the `./calculate` route. This _must_ include an array of at least one flight path or a `422 - Unprocessable Entity is returned`. For example:
 
 ```bash
-curl -H "Content-type: application/json" -d '[['ATL', 'EWR'], ['SFO', 'ATL']]' 'http://localhost:8080/calculate'
+curl -XPOST -H "Content-type: application/json" -d '[['SFO''EWR']]' 'localhost:8080/calculate'
 ```
 
 ## Schema
