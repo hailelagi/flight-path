@@ -23,6 +23,7 @@ curl -XPOST -H "Content-type: application/json" -d '[["IND", "EWR"], ["SFO", "AT
 ## Installation
 
 Assuming you have the rust toolchain installed with `cargo`: `cargo run`
+
 Testing: `cargo test`
 
 ## Estimation
