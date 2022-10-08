@@ -1,4 +1,4 @@
-# Flight Path
+# Flight
 
 A flight path microservice API.
 
@@ -7,13 +7,15 @@ A flight path microservice API.
 Responds to json-ecoded `POST` requests on the `./calculate` route. This _must_ include an array of at least one flight path or a `422 - Unprocessable Entity is returned`. For example:
 
 ```bash
-curl -XPOST -H "Content-type: application/json" -d '[['SFO''EWR']]' 'localhost:8080/calculate'
+curl -XPOST -H "Content-type: application/json" -d '[["SFO", "EWR"]]'  'localhost:8080/calculate'
+curl -XPOST -H "Content-type: application/json" -d '[["ATL", "EWR"], ["SFO", "ATL"]]'  'localhost:8080/calculate'
+curl -XPOST -H "Content-type: application/json" -d '[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]'  'localhost:8080/calculate'
 ```
 
 ## Schema
 
 ```json
-[['SFO''EWR']]  => ['SFO', 'EWR']
+[['SFO', 'EWR']]  => ['SFO', 'EWR']
 [['ATL', 'EWR'], ['SFO', 'ATL']]     => ['SFO', 'EWR']
 [['IND', 'EWR'], ['SFO', 'ATL'], ['GSO', 'IND'], ['ATL', 'GSO']] => ['SFO', 'EWR']
 ```
@@ -21,6 +23,7 @@ curl -XPOST -H "Content-type: application/json" -d '[['SFO''EWR']]' 'localhost:8
 ## Installation
 
 Assuming you have the rust toolchain installed with `cargo`: `cargo run`
+Testing: `cargo test`
 
 ## Estimation
 
