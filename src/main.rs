@@ -1,6 +1,5 @@
 use actix_web::{
-    get, web, Result, Responder, web::Json, 
-    middleware::Logger, App, HttpResponse, HttpServer
+    get, middleware::Logger, web, web::Json, App, HttpResponse, HttpServer, Responder, Result,
 };
 
 pub mod ticket;
@@ -9,7 +8,7 @@ use ticket::{ticket_route, Ticket};
 #[rustfmt::skip]
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-        std::env::set_var("RUST_LOG", "info");
+    std::env::set_var("RUST_LOG", "info");
     std::env::set_var("RUST_BACKTRACE", "1");
     env_logger::init();
 
@@ -33,6 +32,6 @@ async fn index() -> impl Responder {
 
 async fn flight_path(tickets: web::Json<Vec<Ticket>>) -> Result<impl Responder> {
     match tickets {
-        Json(t) => Ok(Json(ticket_route(t)))
+        Json(t) => Ok(Json(ticket_route(t))),
     }
 }
