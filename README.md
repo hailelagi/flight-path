@@ -15,9 +15,9 @@ curl -XPOST -H "Content-type: application/json" -d '[["IND", "EWR"], ["SFO", "AT
 ## Schema
 
 ```json
-[['SFO', 'EWR']]  => ['SFO', 'EWR']
-[['ATL', 'EWR'], ['SFO', 'ATL']]     => ['SFO', 'EWR']
-[['IND', 'EWR'], ['SFO', 'ATL'], ['GSO', 'IND'], ['ATL', 'GSO']] => ['SFO', 'EWR']
+[["SFO", "EWR"]] => [["SFO", "EWR"]]
+[["ATL", "EWR"], ["SFO", "ATL"]]  => [["SFO", "EWR"]]
+[["IND", "EWR"], ["SFO", "ATL"] => [["SFO", "EWR"]]
 ```
 
 ## Installation
